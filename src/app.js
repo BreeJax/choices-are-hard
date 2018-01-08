@@ -1,17 +1,13 @@
 console.log("Running on empty!")
 
-// let titles = {
-//   title: "Choices",
-//   subtitle: "They're hard"
-// }
+let titles = {
+  title: "Choices",
+  subtitle: "They're hard"
+}
 let template = (
   <div>
-    <h1>Choices Are Hard</h1>
-    <p>This is a test</p>
-    <ol>
-      <li>Item One</li>
-      <li>Item Two</li>
-    </ol>
+    <h1>{titles.title}</h1>
+    <h2>{titles.subtitle}</h2>
   </div>
 )
 
@@ -33,4 +29,4 @@ let templateTwo = (
 )
 let appRoot = document.getElementById("app")
 
-ReactDOM.render(templateTwo, appRoot)
+ReactDOM.render(template, appRoot)

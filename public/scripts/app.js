@@ -2,36 +2,22 @@
 
 console.log("Running on empty!");
 
-// let titles = {
-//   title: "Choices",
-//   subtitle: "They're hard"
-// }
+var titles = {
+  title: "Choices",
+  subtitle: "They're hard"
+};
 var template = React.createElement(
   "div",
   null,
   React.createElement(
     "h1",
     null,
-    "Choices Are Hard"
+    titles.title
   ),
   React.createElement(
-    "p",
+    "h2",
     null,
-    "This is a test"
-  ),
-  React.createElement(
-    "ol",
-    null,
-    React.createElement(
-      "li",
-      null,
-      "Item One"
-    ),
-    React.createElement(
-      "li",
-      null,
-      "Item Two"
-    )
+    titles.subtitle
   )
 );
 
@@ -66,4 +52,4 @@ var user = {
 );
 var appRoot = document.getElementById("app");
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
