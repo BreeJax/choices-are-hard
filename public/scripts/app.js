@@ -22,43 +22,24 @@ var template = React.createElement(
   ),
   titles.options.length > 0 ? "Your options are:" : "No Options"
 );
-
-var user = {
-  name: "Bree Jackson",
-  age: 25,
-  location: "Palm Harbor"
-};
-
-var getLocation = function getLocation(location) {
-  if (location) {
-    return React.createElement(
-      "p",
-      null,
-      "Location: ",
-      location
-    );
-  }
-};
-
-// let userName = "Bree Jackson"
-// let userAge = 27
-// let userLocation = "Palm Harbor"
+var count = 0;
+var someID = "my-id";
 var templateTwo = React.createElement(
   "div",
   null,
   React.createElement(
     "h1",
     null,
-    user.name ? user.name : "Hidden"
+    "Count: ",
+    count
   ),
-  user.age && user.age >= 18 && React.createElement(
-    "p",
-    null,
-    "Age: ",
-    user.age
-  ),
-  getLocation(user.location)
+  React.createElement(
+    "button",
+    { id: someID, className: "button" },
+    "+1"
+  )
 );
+console.log(templateTwo);
 var appRoot = document.getElementById("app");
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

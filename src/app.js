@@ -13,29 +13,17 @@ let template = (
     {titles.options.length > 0 ? "Your options are:" : "No Options"}
   </div>
 )
-
-let user = {
-  name: "Bree Jackson",
-  age: 25,
-  location: "Palm Harbor"
-}
-
-const getLocation = (location) => {
-  if (location) {
-    return <p>Location: {location}</p>
-  }
-}
-
-// let userName = "Bree Jackson"
-// let userAge = 27
-// let userLocation = "Palm Harbor"
-let templateTwo = (
+let count = 0
+const someID = "my-id"
+const templateTwo = (
   <div>
-    <h1>{user.name ? user.name : "Hidden"}</h1>
-    {user.age && user.age >= 18 && <p>Age: {user.age}</p>}
-    {getLocation(user.location)}
+    <h1>Count: {count}</h1>
+    <button id={someID} className="button">
+      +1
+    </button>
   </div>
 )
+console.log(templateTwo)
 const appRoot = document.getElementById("app")
 
-ReactDOM.render(template, appRoot)
+ReactDOM.render(templateTwo, appRoot)
