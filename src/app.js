@@ -2,19 +2,28 @@ console.log("Running on empty!")
 
 let titles = {
   title: "Choices",
-  subtitle: "They're hard"
+  subtitle: "They're hard",
+  options: ["one", "Two", "Three"]
 }
 let template = (
   <div>
     <h1>{titles.title}</h1>
-    <h2>{titles.subtitle}</h2>
+
+    {titles.subtitle && <h2>{titles.subtitle}</h2>}
+    {titles.options.length > 0 ? "Your options are:" : "No Options"}
   </div>
 )
 
 let user = {
   name: "Bree Jackson",
-  age: 27,
+  age: 25,
   location: "Palm Harbor"
+}
+
+const getLocation = (location) => {
+  if (location) {
+    return <p>Location: {location}</p>
+  }
 }
 
 // let userName = "Bree Jackson"
@@ -22,11 +31,11 @@ let user = {
 // let userLocation = "Palm Harbor"
 let templateTwo = (
   <div>
-    <h1>{user.name}</h1>
-    <p>Age: {user.age}</p>
-    <p>Location: {user.location}</p>
+    <h1>{user.name ? user.name : "Hidden"}</h1>
+    {user.age && user.age >= 18 && <p>Age: {user.age}</p>}
+    {getLocation(user.location)}
   </div>
 )
-let appRoot = document.getElementById("app")
+const appRoot = document.getElementById("app")
 
 ReactDOM.render(template, appRoot)
