@@ -23,7 +23,15 @@ var template = React.createElement(
   titles.options.length > 0 ? "Your options are:" : "No Options"
 );
 var count = 0;
-var someID = "my-id";
+var addOne = function addOne() {
+  console.log("add One");
+};
+var minusOne = function minusOne() {
+  console.log("minus One");
+};
+var reset = function reset() {
+  console.log("reset");
+};
 var templateTwo = React.createElement(
   "div",
   null,
@@ -35,8 +43,18 @@ var templateTwo = React.createElement(
   ),
   React.createElement(
     "button",
-    { id: someID, className: "button" },
+    { onClick: addOne },
     "+1"
+  ),
+  React.createElement(
+    "button",
+    { onClick: minusOne },
+    "-1"
+  ),
+  React.createElement(
+    "button",
+    { onClick: reset },
+    "reset"
   )
 );
 console.log(templateTwo);

@@ -13,14 +13,22 @@ let template = (
     {titles.options.length > 0 ? "Your options are:" : "No Options"}
   </div>
 )
-let count = 0
-const someID = "my-id"
+const count = 0
+const addOne = () => {
+  console.log("add One")
+}
+const minusOne = () => {
+  console.log("minus One")
+}
+const reset = () => {
+  console.log("reset")
+}
 const templateTwo = (
   <div>
     <h1>Count: {count}</h1>
-    <button id={someID} className="button">
-      +1
-    </button>
+    <button onClick={addOne}>+1</button>
+    <button onClick={minusOne}>-1</button>
+    <button onClick={reset}>reset</button>
   </div>
 )
 console.log(templateTwo)
