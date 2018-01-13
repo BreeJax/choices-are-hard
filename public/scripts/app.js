@@ -25,15 +25,15 @@ var template = React.createElement(
 var count = 0;
 var addOne = function addOne() {
   count++;
-  console.log("add One", count);
+  renderCounterApp();
 };
 var minusOne = function minusOne() {
   count--;
-  console.log("minus One", count);
+  renderCounterApp();
 };
 var reset = function reset() {
   count = 0;
-  console.log("reset", count);
+  renderCounterApp();
 };
 
 var appRoot = document.getElementById("app");

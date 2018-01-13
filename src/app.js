@@ -16,15 +16,15 @@ let template = (
 let count = 0
 const addOne = () => {
   count++
-  console.log("add One", count)
+  renderCounterApp()
 }
 const minusOne = () => {
   count--
-  console.log("minus One", count)
+  renderCounterApp()
 }
 const reset = () => {
   count = 0
-  console.log("reset", count)
+  renderCounterApp()
 }
 
 const appRoot = document.getElementById("app")
