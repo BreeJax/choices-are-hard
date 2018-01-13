@@ -13,18 +13,20 @@ let template = (
     {titles.options.length > 0 ? "Your options are:" : "No Options"}
   </div>
 )
-const count = 0
+let count = 0
 const addOne = () => {
   count++
   console.log("add One", count)
 }
 const minusOne = () => {
-  console.log("minus One")
+  count--
+  console.log("minus One", count)
 }
 const reset = () => {
-  console.log("reset")
+  count = 0
+  console.log("reset", count)
 }
-console.log(templateTwo)
+
 const appRoot = document.getElementById("app")
 
 const renderCounterApp = () => {
