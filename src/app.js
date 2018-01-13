@@ -16,7 +16,7 @@ let template = (
 const count = 0
 const addOne = () => {
   count++
-  renderCounterApp()
+  console.log("add One", count)
 }
 const minusOne = () => {
   console.log("minus One")
@@ -25,7 +25,6 @@ const reset = () => {
   console.log("reset")
 }
 console.log(templateTwo)
-
 const appRoot = document.getElementById("app")
 
 const renderCounterApp = () => {
