@@ -13,8 +13,8 @@ let onFormSubmit = (e) => {
   if (option) {
     titles.options.push(option)
     e.target.elements.option.value = ""
+    renderApp()
   }
-  renderApp()
 }
 
 const appRoot = document.getElementById("app")

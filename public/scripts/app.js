@@ -15,8 +15,8 @@ var onFormSubmit = function onFormSubmit(e) {
   if (option) {
     titles.options.push(option);
     e.target.elements.option.value = "";
+    renderApp();
   }
-  renderApp();
 };
 
 var appRoot = document.getElementById("app");
