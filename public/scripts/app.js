@@ -20,23 +20,38 @@ var template = React.createElement(
     null,
     titles.subtitle
   ),
-  titles.options.length > 0 ? "Your options are:" : "No Options"
+  titles.options.length > 0 ? "Your options are:" : "No Options",
+  React.createElement(
+    "ol",
+    null,
+    React.createElement(
+      "li",
+      null,
+      " Item One"
+    ),
+    React.createElement(
+      "li",
+      null,
+      "Item Two"
+    )
+  )
 );
+var appRoot = document.getElementById("app");
 var count = 0;
 var addOne = function addOne() {
   count++;
+  //count = count + 1
   renderCounterApp();
 };
 var minusOne = function minusOne() {
   count--;
+  //count = count - 1
   renderCounterApp();
 };
 var reset = function reset() {
   count = 0;
   renderCounterApp();
 };
-
-var appRoot = document.getElementById("app");
 
 var renderCounterApp = function renderCounterApp() {
   var templateTwo = React.createElement(
