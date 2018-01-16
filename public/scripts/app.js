@@ -19,7 +19,7 @@ var onFormSubmit = function onFormSubmit(e) {
   }
 };
 var clearAll = function clearAll() {
-  titles.options = 0;
+  titles.options = [];
   renderApp();
 };
 var appRoot = document.getElementById("app");
@@ -52,16 +52,13 @@ var renderApp = function renderApp() {
     React.createElement(
       "ol",
       null,
-      React.createElement(
-        "li",
-        null,
-        " Item One"
-      ),
-      React.createElement(
-        "li",
-        null,
-        "Item Two"
-      )
+      titles.options.map(function (option) {
+        return React.createElement(
+          "li",
+          { key: option },
+          option
+        );
+      })
     ),
     React.createElement(
       "form",

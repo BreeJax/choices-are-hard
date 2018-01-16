@@ -17,7 +17,7 @@ let onFormSubmit = (e) => {
   }
 }
 let clearAll = () => {
-  titles.options = 0
+  titles.options = []
   renderApp()
 }
 const appRoot = document.getElementById("app")
@@ -31,8 +31,9 @@ const renderApp = () => {
       <p>{titles.options.length}</p>
       <button onClick={clearAll}>Clear All Options</button>
       <ol>
-        <li> Item One</li>
-        <li>Item Two</li>
+        {titles.options.map((option) => {
+          return <li key={option}>{option}</li>
+        })}
       </ol>
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option" />
