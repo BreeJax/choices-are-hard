@@ -18,7 +18,10 @@ var onFormSubmit = function onFormSubmit(e) {
     renderApp();
   }
 };
-
+var clearAll = function clearAll() {
+  titles.options = 0;
+  renderApp();
+};
 var appRoot = document.getElementById("app");
 
 var renderApp = function renderApp() {
@@ -40,6 +43,11 @@ var renderApp = function renderApp() {
       "p",
       null,
       titles.options.length
+    ),
+    React.createElement(
+      "button",
+      { onClick: clearAll },
+      "Clear All Options"
     ),
     React.createElement(
       "ol",

@@ -16,7 +16,10 @@ let onFormSubmit = (e) => {
     renderApp()
   }
 }
-
+let clearAll = () => {
+  titles.options = 0
+  renderApp()
+}
 const appRoot = document.getElementById("app")
 
 const renderApp = () => {
@@ -26,6 +29,7 @@ const renderApp = () => {
       {titles.subtitle && <h2>{titles.subtitle}</h2>}
       {titles.options.length > 0 ? "Your options are:" : "No Options"}
       <p>{titles.options.length}</p>
+      <button onClick={clearAll}>Clear All Options</button>
       <ol>
         <li> Item One</li>
         <li>Item Two</li>
