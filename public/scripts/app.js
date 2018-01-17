@@ -1,76 +1,46 @@
 "use strict";
 
-console.log("Running on empty!");
+console.log("Hello there beautiful!");
 
-var titles = {
-  title: "Choices",
-  subtitle: "They're hard",
-  options: []
-};
-
-var onFormSubmit = function onFormSubmit(e) {
-  e.preventDefault();
-  var option = e.target.elements.option.value;
-
-  if (option) {
-    titles.options.push(option);
-    e.target.elements.option.value = "";
-    renderApp();
-  }
-};
-var clearAll = function clearAll() {
-  titles.options = [];
-  renderApp();
-};
 var appRoot = document.getElementById("app");
 
-var renderApp = function renderApp() {
+var showing = false;
+
+var hidden = function hidden() {
+  showing = !showing;
+  console.log(showing);
+  visable();
+};
+
+var visable = function visable() {
   var template = React.createElement(
     "div",
     null,
     React.createElement(
       "h1",
       null,
-      titles.title
+      "Harry Potter!"
     ),
-    titles.subtitle && React.createElement(
-      "h2",
-      null,
-      titles.subtitle
-    ),
-    titles.options.length > 0 ? "Your options are:" : "No Options",
     React.createElement(
-      "p",
+      "h3",
       null,
-      titles.options.length
+      "Do you have your cloke?"
     ),
     React.createElement(
       "button",
-      { onClick: clearAll },
-      "Clear All Options"
+      { onClick: hidden },
+      showing ? "No, I don't" : "Yes!! I have it!"
     ),
-    React.createElement(
-      "ol",
+    showing && React.createElement(
+      "div",
       null,
-      titles.options.map(function (option) {
-        return React.createElement(
-          "li",
-          { key: option },
-          option
-        );
-      })
-    ),
-    React.createElement(
-      "form",
-      { onSubmit: onFormSubmit },
-      React.createElement("input", { type: "text", name: "option" }),
       React.createElement(
-        "button",
+        "p",
         null,
-        "Add Option"
+        "Hurry to the restricted section, Mr. Potter!"
       )
     )
   );
   ReactDOM.render(template, appRoot);
 };
-renderApp();
+visable();

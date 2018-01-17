@@ -20,6 +20,12 @@ let clearAll = () => {
   titles.options = []
   renderApp()
 }
+
+let makeChoice = () => {
+  let randomNum = Math.floor(Math.random() * titles.options.length)
+  let option = titles.options[randomNum]
+  alert(option)
+}
 const appRoot = document.getElementById("app")
 
 const renderApp = () => {
@@ -28,7 +34,9 @@ const renderApp = () => {
       <h1>{titles.title}</h1>
       {titles.subtitle && <h2>{titles.subtitle}</h2>}
       {titles.options.length > 0 ? "Your options are:" : "No Options"}
-      <p>{titles.options.length}</p>
+      <button disabled={titles.options.length === 0} onClick={makeChoice}>
+        What should I do?
+      </button>
       <button onClick={clearAll}>Clear All Options</button>
       <ol>
         {titles.options.map((option) => {
