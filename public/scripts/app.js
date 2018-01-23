@@ -10,6 +10,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 console.log("Hello Darkness my old friend");
 
+var obj = {
+  name: "Bree",
+  getName: function getName() {
+    return this.name;
+  }
+};
+var getName = obj.getName.bind(obj);
+// const getName = obj.getName.bind({ name: "Kyle" }) <= this is a replacement method. Let's not do this.
+
+console.log(getName());
+
 var ChoicesAreHardApp = function (_React$Component) {
   _inherits(ChoicesAreHardApp, _React$Component);
 
@@ -81,6 +92,11 @@ var Action = function (_React$Component3) {
   }
 
   _createClass(Action, [{
+    key: "handlePick",
+    value: function handlePick() {
+      alert("handlePick");
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
@@ -88,7 +104,7 @@ var Action = function (_React$Component3) {
         null,
         React.createElement(
           "button",
-          null,
+          { onClick: this.handlePick },
           "What should I do?"
         )
       );
@@ -108,6 +124,12 @@ var Options = function (_React$Component4) {
   }
 
   _createClass(Options, [{
+    key: "removeAllOptions",
+    value: function removeAllOptions() {
+      console.log(this.props.options);
+      // alert("removeAllOptions")
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
@@ -115,7 +137,12 @@ var Options = function (_React$Component4) {
         null,
         this.props.options.map(function (option) {
           return React.createElement(Option, { key: option, optionText: option });
-        })
+        }),
+        React.createElement(
+          "button",
+          { onClick: this.removeAllOptions },
+          "Remove All Options"
+        )
       );
     }
   }]);
@@ -133,15 +160,30 @@ var AddOption = function (_React$Component5) {
   }
 
   _createClass(AddOption, [{
+    key: "onFormSubmit",
+    value: function onFormSubmit(e) {
+      e.preventDefault();
+      var option = e.target.elements.option.value.trim();
+
+      if (option) {
+        alert(option);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
         "div",
         null,
         React.createElement(
-          "p",
-          null,
-          "This is me being lazy"
+          "form",
+          { onSubmit: this.onFormSubmit },
+          React.createElement("input", { type: "text", name: "option" }),
+          React.createElement(
+            "button",
+            null,
+            "Add Option"
+          )
         )
       );
     }

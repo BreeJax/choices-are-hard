@@ -1,5 +1,16 @@
 console.log("Hello Darkness my old friend")
 
+const obj = {
+  name: "Bree",
+  getName() {
+    return this.name
+  }
+}
+const getName = obj.getName.bind(obj)
+// const getName = obj.getName.bind({ name: "Kyle" }) <= this is a replacement method. Let's not do this.
+
+console.log(getName())
+
 class ChoicesAreHardApp extends React.Component {
   render() {
     const title = "Choices are Hard"
@@ -28,26 +39,49 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
+  handlePick() {
+    alert("handlePick")
+  }
   render() {
     return (
       <div>
-        <button>What should I do?</button>
+        <button onClick={this.handlePick}>What should I do?</button>
       </div>
     )
   }
 }
 
 class Options extends React.Component {
+  removeAllOptions() {
+    console.log(this.props.options)
+    // alert("removeAllOptions")
+  }
   render() {
-    return <div>{this.props.options.map((option) => <Option key={option} optionText={option} />)}</div>
+    return (
+      <div>
+        {this.props.options.map((option) => <Option key={option} optionText={option} />)}
+        <button onClick={this.removeAllOptions}>Remove All Options</button>
+      </div>
+    )
   }
 }
 
 class AddOption extends React.Component {
+  onFormSubmit(e) {
+    e.preventDefault()
+    const option = e.target.elements.option.value.trim()
+
+    if (option) {
+      alert(option)
+    }
+  }
   render() {
     return (
       <div>
-        <p>This is me being lazy</p>
+        <form onSubmit={this.onFormSubmit}>
+          <input type="text" name="option" />
+          <button>Add Option</button>
+        </form>
       </div>
     )
   }
