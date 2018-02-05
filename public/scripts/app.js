@@ -27,8 +27,39 @@ var ChoicesAreHardApp = function (_React$Component) {
     };
     return _this;
   }
+  //livecycle method
+
 
   _createClass(ChoicesAreHardApp, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log("fetching Data");
+    }
+    //livecycle method
+
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      console.log("Saving Data");
+    }
+    //livecycle method
+
+  }, {
+    key: "componentWillUnmount",
+    value: function (_componentWillUnmount) {
+      function componentWillUnmount() {
+        return _componentWillUnmount.apply(this, arguments);
+      }
+
+      componentWillUnmount.toString = function () {
+        return _componentWillUnmount.toString();
+      };
+
+      return componentWillUnmount;
+    }(function () {
+      console.log(componentWillUnmount);
+    })
+  }, {
     key: "handleDeleteOptions",
     value: function handleDeleteOptions() {
       this.setState(function () {

@@ -11,7 +11,18 @@ class ChoicesAreHardApp extends React.Component {
       options: props.options
     }
   }
-
+  //livecycle method
+  componentDidMount() {
+    console.log("fetching Data")
+  }
+  //livecycle method
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Saving Data")
+  }
+  //livecycle method
+  componentWillUnmount() {
+    console.log(componentWillUnmount)
+  }
   handleDeleteOptions() {
     this.setState(() => {
       return {
