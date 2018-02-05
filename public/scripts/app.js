@@ -36,10 +36,6 @@ var ChoicesAreHardApp = function (_React$Component) {
           options: []
         };
       });
-
-      // this.setState(() => ({
-      //   options: []
-      // })) this could be a way to write this as well- however, I believe in readability, and being able to read in a year what it is that I'm doing. I don't think cutting two lines is really all that great, so I'm not going to do it.
     }
   }, {
     key: "handleDeleteOne",
