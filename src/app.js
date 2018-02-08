@@ -13,11 +13,22 @@ class ChoicesAreHardApp extends React.Component {
   }
   //livecycle method
   componentDidMount() {
-    console.log("fetching Data")
+    try {
+      let json = localStorage.getItem("options")
+      let options = JSON.parse(json)
+
+      if (options) {
+        this.setState(() => ({ options: options }))
+      }
+    } catch (e) {}
   }
   //livecycle method
   componentDidUpdate(prevProps, prevState) {
-    console.log("Saving Data")
+    if (prevState.options.length !== this.state.options.length) {
+      const json = JSON.stringify(this.state.options)
+      localStorage.setItem("options", json)
+      console.log("Saving Data")
+    }
   }
   //livecycle method
   componentWillUnmount() {
@@ -105,6 +116,7 @@ const Options = (props) => {
   return (
     <div>
       <button onClick={props.handleDeleteOptions}>Remove All Options</button>
+      {props.options.length === 0 && <p>Add something to get started!</p>}
       {props.options.map((option) => (
         <Option key={option} optionText={option} handleDeleteOne={props.handleDeleteOne} />
       ))}
@@ -143,13 +155,11 @@ class AddOption extends React.Component {
     let option = e.target.elements.option.value.trim()
     const error = this.props.handleAddOption(option)
 
-    // this.setState(() => {
-    //   return {
-    //     error: error
-    //   }
-    // })
-
     this.setState(() => ({ error: error }))
+
+    if (!error) {
+      e.target.elements.option.value = ""
+    }
   }
 
   render() {
