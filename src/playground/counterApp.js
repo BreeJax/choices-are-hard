@@ -1,4 +1,6 @@
-console.log("Hey Bree")
+console.log("Hey there")
+
+// have to be carefull when using livecycle methods to not make any of the numbers into string, otherwise math becomes impossible.
 
 class CounterApp extends React.Component {
   constructor(props) {
@@ -7,9 +9,30 @@ class CounterApp extends React.Component {
     this.minusOne = this.minusOne.bind(this)
     this.resetCounter = this.resetCounter.bind(this)
     this.state = {
-      count: props.count
+      count: 0
     }
   }
+
+  //livecycle method
+  componentDidMount() {
+    const stringCount = localStorage.getItem("count")
+    const count = parseInt(stringCount, 10)
+
+    if (!isNaN(count)) {
+      this.setState(() => ({ count: count }))
+    }
+  }
+  //livecycle method
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.count !== this.state.count) {
+      localStorage.setItem("count", this.state.count)
+    }
+  }
+  //livecycle method
+  // componentWillUnmount() {
+  //   console.log(componentWillUnmount)
+  // }
+
   minusOne() {
     this.setState((prevState) => {
       return {
@@ -32,7 +55,7 @@ class CounterApp extends React.Component {
     })
     this.setState((prevState) => {
       return {
-        count: prevState.count + 1
+        count: prevState.count + 0
       }
     })
     // this.setState({
@@ -53,9 +76,7 @@ class CounterApp extends React.Component {
     )
   }
 }
-CounterApp.defaultProps = {
-  count: 0
-}
+
 ReactDOM.render(<CounterApp />, document.getElementById("app"))
 
 //ReactDOM.render(<CounterApp count={-10}/>, document.getElementById("app")) <= this overrides the 0 above.

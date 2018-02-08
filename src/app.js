@@ -8,7 +8,7 @@ class ChoicesAreHardApp extends React.Component {
     this.handleAddOption = this.handleAddOption.bind(this)
     this.handleDeleteOne = this.handleDeleteOne.bind(this)
     this.state = {
-      options: props.options
+      options: []
     }
   }
   //livecycle method
@@ -80,10 +80,6 @@ class ChoicesAreHardApp extends React.Component {
       </div>
     )
   }
-}
-
-ChoicesAreHardApp.defaultProps = {
-  options: []
 }
 
 //Stateless functional Component
