@@ -69,33 +69,73 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__person_js__ = __webpack_require__(2);
-// import { square, add, minus } from "./utils.js"
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__person_js__ = __webpack_require__(2);
+
 
 
 //
-// console.log("Here we go again!")
-// console.log(square(4))
-// console.log(add(4, 99))
-// console.log(minus(4, 99))
+console.log("Here we go again!")
 
-console.log("I am an Adult: " + __WEBPACK_IMPORTED_MODULE_0__person_js__["b" /* isAdult */](19))
-console.log("I can drink: " + __WEBPACK_IMPORTED_MODULE_0__person_js__["a" /* canDrink */](19))
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["d" /* square */](4))
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["a" /* add */](4, 99))
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["c" /* minus */](4, 99))
+console.log(__WEBPACK_IMPORTED_MODULE_0__utils_js__["b" /* default */](8, 4))
+
+console.log("I am an Adult: " + __WEBPACK_IMPORTED_MODULE_1__person_js__["c" /* isAdult */](19))
+console.log("I can drink: " + __WEBPACK_IMPORTED_MODULE_1__person_js__["a" /* canDrink */](19))
+console.log("I am a Senior: " + __WEBPACK_IMPORTED_MODULE_1__person_js__["b" /* default */](65))
 
 
 /***/ }),
-/* 1 */,
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return square; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return add; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return minus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return divide; });
+console.log("this is sparta.js is running")
+
+const square = (x) => x * x
+
+const add = (a, b) => a + b
+
+//named export
+const minus = (a, b) => a - b
+
+const divide = (a, b) => a / b
+
+//export default divide (Do this if you want to export without {})
+//export default (a, b) => a / b (Do this if you want to export without {} AND only having one line of code)
+
+//named exports
+
+
+// exports - default -named exports
+
+//YOU CAN ONLY SET UP A SINGLE DEFAULT
+
+
+/***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+//named export
 const isAdult = (age) => 18 <= age
-/* harmony export (immutable) */ __webpack_exports__["b"] = isAdult;
+/* harmony export (immutable) */ __webpack_exports__["c"] = isAdult;
 
 
+//named export
 const canDrink = (age) => 21 <= age
 /* harmony export (immutable) */ __webpack_exports__["a"] = canDrink;
 
+
+const isSenior = (age) => 65 <= age
+
+/* harmony default export */ __webpack_exports__["b"] = (isSenior);
 
 
 /***/ })
