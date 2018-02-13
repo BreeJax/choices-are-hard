@@ -1,3 +1,5 @@
 "use strict";
 
-console.log("Here we go again Kyle!");
+require("./utils.js");
+
+console.log("Here we go again!");
