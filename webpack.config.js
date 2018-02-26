@@ -16,8 +16,3 @@ module.exports = {
     ]
   }
 }
-
-//loader
-
-//for using babel in webpack
-//yarn add babel-core babel-loader
