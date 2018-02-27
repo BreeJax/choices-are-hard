@@ -3,10 +3,12 @@ import AddOption from "./AddOption"
 import Options from "./Options"
 import Header from "./Header"
 import Action from "./Action"
+import OptionModal from "./OptionModal"
 
 class ChoicesAreHardApp extends React.Component {
   state = {
-    options: []
+    options: [],
+    selectedOption: undefined
   }
 
   handleDeleteOptions = () => {
@@ -23,10 +25,18 @@ class ChoicesAreHardApp extends React.Component {
       })
     }))
   }
+  handleDeleteSelectedOption = () => {
+    this.setState(() => {
+      return {
+        selectedOption: undefined
+      }
+    })
+  }
   handlePick = () => {
     let randomChoice = Math.floor(Math.random() * this.state.options.length)
     let option = this.state.options[randomChoice]
-    alert(option)
+
+    this.setState(() => ({ selectedOption: option }))
   }
   handleAddOption = (option) => {
     if (!option) {
@@ -75,6 +85,10 @@ class ChoicesAreHardApp extends React.Component {
           handleDeleteOne={this.handleDeleteOne}
         />
         <AddOption handleAddOption={this.handleAddOption} />
+        <OptionModal
+          selectedOption={this.state.selectedOption}
+          handleDeleteSelectedOption={this.handleDeleteSelectedOption}
+        />
       </div>
     )
   }
