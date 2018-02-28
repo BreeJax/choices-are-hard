@@ -3,8 +3,10 @@ import React from "react"
 //Stateless functional Component
 const Option = (props) => {
   return (
-    <div>
-      Option: {props.optionText}
+    <div className="option">
+      <p>
+        {props.count}. {props.optionText}
+      </p>
       <button
         className="button button--link"
         onClick={(e) => {
