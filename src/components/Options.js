@@ -4,7 +4,9 @@ import Option from "./Option"
 //Stateless functional Component
 const Options = (props) => (
   <div>
-    <button onClick={props.handleDeleteOptions}>Remove All Options</button>
+    <button className="button button--link" onClick={props.handleDeleteOptions}>
+      Remove All Options
+    </button>
     {props.options.length === 0 && <p>Add something to get started!</p>}
     {props.options.map((option) => <Option key={option} optionText={option} handleDeleteOne={props.handleDeleteOne} />)}
   </div>
